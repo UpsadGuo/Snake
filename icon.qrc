@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/icon">
+        <file alias="pause">C:/Users/aguos/Pictures/Pause.png</file>
+        <file alias="resume">C:/Users/aguos/Pictures/resume.png</file>
+    </qresource>
+</RCC>
