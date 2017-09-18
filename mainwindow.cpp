@@ -19,6 +19,7 @@ MainWindow::MainWindow(QWidget *parent):
     setWindowTitle("贪吃蛇");
 
     QMenu *menu = menuBar()->addMenu(tr("游戏"));
+    QToolBar *toolBar = addToolBar(tr("&N"));
 
     newGame = new QAction(tr("开局(&N)"),this);
     newGame->setShortcut(QKeySequence("F2"));
@@ -27,16 +28,18 @@ MainWindow::MainWindow(QWidget *parent):
     menu->addAction(newGame);
     menu->addSeparator();
 
-
+    easyMode = new QAction(tr("简单模式(&E)"),this);
+    easyMode->setStatusTip(tr("简单模式"));
+    connect(easyMode,&QAction::triggered,game,&GameController::setLevel);
 
     pause = new QAction(QIcon(":/icon/pause"),tr("暂停"),this);
     pause->setShortcut(QKeySequence("p"));
     connect(pause,&QAction::triggered,game,&GameController::pause);
-
+    toolBar->addAction(pause);
     resume = new QAction(QIcon(":/icon/resume"),tr("继续"),this);
     resume->setShortcut(QKeySequence("r"));
     connect(resume,&QAction::triggered,game,&GameController::resume);
-
+    toolBar->addAction(resume);
     statusBar();
 
     setCentralWidget(view);
