@@ -1,6 +1,5 @@
 #include "mainwindow.h"
 #include "gamecontroller.h"
-#include "constants.h"
 #include <QGraphicsView>
 #include <QTimer>
 #include <QAction>
@@ -30,7 +29,18 @@ MainWindow::MainWindow(QWidget *parent):
 
     easyMode = new QAction(tr("简单模式(&E)"),this);
     easyMode->setStatusTip(tr("简单模式"));
-    connect(easyMode,&QAction::triggered,game,&GameController::setLevel);
+    connect(easyMode,&QAction::triggered,game,&GameController::setEasy);
+    menu->addAction(easyMode);
+
+    commonMode = new QAction(tr("一般模式(&C)"),this);
+    commonMode->setStatusTip(tr("一般模式"));
+    connect(commonMode,&QAction::triggered,game,&GameController::setCommon);
+    menu->addAction(commonMode);
+
+    hardMode = new QAction(tr("困难模式(&H)"),this);
+    hardMode->setToolTip(tr("困难模式"));
+    connect(hardMode,&QAction::triggered,game,&GameController::setHard);
+    menu->addAction(hardMode);
 
     pause = new QAction(QIcon(":/icon/pause"),tr("暂停"),this);
     pause->setShortcut(QKeySequence("p"));
@@ -43,7 +53,7 @@ MainWindow::MainWindow(QWidget *parent):
     statusBar();
 
     setCentralWidget(view);
-    resize(600,600);
+    resize(1000,1000);
 
     initView();
     initViewBg();

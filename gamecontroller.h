@@ -25,7 +25,9 @@ public slots:
     void pause();
     void resume();
     void gameOver();
-    void setLevel(Levels level);
+    void setEasy();
+    void setCommon();
+    void setHard();
 protected:
     bool eventFilter(QObject *watched, QEvent *event);
 private:

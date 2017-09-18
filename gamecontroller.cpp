@@ -89,26 +89,28 @@ void GameController::gameOver(){
 
     snake = new Snake(*this);
     scene.addItem(snake);
+    isRunning = false;
     addNewFood();
 }
 
-void GameController::setLevel(Levels level)
+void GameController::setEasy()
 {
-    if(!isRunning){
-        switch (level) {
-            case easy:
-                snake->setSpeed(5);
-                break;
-            case common:
-                snake->setSpeed(10);
-                break;
-            case hard:
-                snake->setSpeed(15);
-            default:
-                break;
-        }
-    }
+    if(!isRunning)
+        snake->setSpeed(15);
 }
+
+void GameController::setCommon()
+{
+   if(!isRunning)
+       snake->setSpeed(10);
+}
+
+void GameController::setHard()
+{
+   if(!isRunning)
+       snake->setSpeed(5);
+}
+
 
 void GameController::pause(){
     if(isRunning){

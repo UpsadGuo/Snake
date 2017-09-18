@@ -11,7 +11,8 @@ Snake::Snake(GameController &controller):
     growing(7),
     speed(10),
     moveDirection(NoMove),
-    controller(controller)
+    controller(controller),
+    tickCounter(0)
 {
 }
 
