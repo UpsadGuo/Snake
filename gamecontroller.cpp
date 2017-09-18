@@ -32,8 +32,11 @@ void GameController::snakeAteFood(Food *food)
 {
     scene.removeItem(food);
     delete food;
-
     addNewFood();
+
+    if(snake->getLength()%10 == 0 && snake->getSpeed()){
+        snake->setSpeed(snake->getSpeed()-1);
+    }
 }
 
 void GameController::snakeHitWall(Snake *snake, Wall *wall){

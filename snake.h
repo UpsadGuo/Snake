@@ -24,7 +24,8 @@ public:
     void setMoveDirection(Direction direction);
     void setSpeed(int s);
     Direction getMoveDirection();
-
+    int getLength();
+    int getSpeed();
 protected:
     void advance(int step);
 private:

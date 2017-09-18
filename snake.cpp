@@ -73,6 +73,16 @@ Snake::Direction Snake::getMoveDirection()
     return moveDirection;
 }
 
+int Snake::getLength()
+{
+    return tail.length();
+}
+
+int Snake::getSpeed()
+{
+    return speed;
+}
+
 void Snake::advance(int step)
 {
     if(!step){
@@ -93,7 +103,6 @@ void Snake::advance(int step)
         tail.takeFirst();
         tail << head;
     }
-
     switch(moveDirection){
     case MoveLeft:
         moveLeft();
